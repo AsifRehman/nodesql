@@ -1,17 +1,17 @@
 var Connection = require('tedious').Connection;
 
 var config = {
-    server: '####',
+    server: '192.169.82.62',
     authentication: {
         type: 'default',
         options: {
-            userName: 'sa',
-            password: 'p0O9i8U7'
+            userName: 'cosoft',
+            password: 'Abc007302420'
         }
     },
     options: {
-        database: '####',
-        instanceName: 'Sqlexpress',
+        database: 'ACCOUNT',
+//        instanceName: 'Sqlexpress',
         rowCollectionOnDone: true,
         useColumnNames: false
     }
