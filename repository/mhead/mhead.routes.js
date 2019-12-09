@@ -4,16 +4,16 @@ const dbContext = require('../../Database/dbContext');
 module.exports = function (router) {
     const mheadRepository = MHeadRepository(dbContext);
 
-    router.route('/mhead')
+    router.route('/tbl_MHead')
         .get(mheadRepository.getAll)
         .post(mheadRepository.post);
         
 //    router.route('/mhead/department')
 //    .get(employeeRepository.getMulti);
 
-    router.use('/mhead/:mheadId', mheadRepository.intercept);
+    router.use('/tbl_MHead/:mheadId', mheadRepository.intercept);
 
-    router.route('/mhead/:mheadId')
+    router.route('/tbl_MHead/:mheadId')
         .get(mheadRepository.get)
         .put(mheadRepository.put)
         .delete(mheadRepository.delete);

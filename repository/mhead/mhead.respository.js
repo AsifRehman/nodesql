@@ -25,19 +25,21 @@ function MHeadRepository(dbContext) {
 
     function getMHeads(req, res) {
 
+        var parameters = [];
         if (req.query.salary) {
-            var parameters = [];
 
             parameters.push({ name: 'Salary', type: TYPES.Int, val: req.query.salary });
 
-            var query = "select * from tbl_MHead where salary>=@Salary"
-
+            var query = "select * from tbl_MHead where mheadID>=@Salary"
+            console.log('getmheads')
             dbContext.getQuery(query, parameters, false, function (error, data) {
                 return res.json(response(data, error));
             });
         }
         else {
-            dbContext.getQuery("SELECT * FROM tbl_MHead", null, false,  function (error, data) {
+            parameters.push({ name: 'HeadID', type: TYPES.Int, val: 1 });
+
+            dbContext.getQuery("SELECT * FROM tbl_MHead WHERE MHeadID>=@HeadID", parameters, false,  function (error, data) {
                 return res.json(response(data, error));
 //            dbContext.get("getMHeads", function (error, data) {
 //                return res.json(response(data, error));
