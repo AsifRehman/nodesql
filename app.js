@@ -8,7 +8,7 @@ app.use(cors())
 var port = process.env.port || 3300
 
 app.listen(port, () => {
-    console.log("Hi This port is running");
+    console.log("Hi This port is running @ http://localhost:3300/api/");
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
