@@ -6,7 +6,7 @@ function DepartmentRepository(dbContext) {
     function getDepartments(req, res) {
         var params = [];
 
-        dbContext.getQuery("select * from tbl_department", params, false, function (error, data) {
+        dbContext.getQuery("select * from [in-depart]", params, false, function (error, data) {
             
             return res.json(response(data, error));
         });
