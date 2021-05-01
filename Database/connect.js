@@ -10,8 +10,8 @@ var config = {
         }
     },
     options: {
-        database: 'MECH19',
-        instanceName: 'Sqlexpress',
+        database: 'IM21',
+//        instanceName: 'Sqlexpress',
         rowCollectionOnDone: true,
         useColumnNames: false
     }
