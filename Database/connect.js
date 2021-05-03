@@ -11,7 +11,7 @@ var config = {
     },
     options: {
         database: 'IM21',
-//        instanceName: 'Sqlexpress',
+        instanceName: 'sql2016',
         rowCollectionOnDone: true,
         useColumnNames: false
     }

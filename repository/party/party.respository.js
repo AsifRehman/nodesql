@@ -9,21 +9,20 @@ function PartyRepository(dbContext) {
         if (req.query.ts) {
             params.push({ name: 'ts', type: TYPES.Int, val: req.query.ts });
 
-            dbContext.getQuery("select partynameid id, partyname, partytypeid, debit, credit, CAST(ts as int) ts from tbl_Party WHERE ts>@ts", params, false, function (error, data) {
+            dbContext.getQuery("SELECT  * FROM web_party ts>@ts", params, false, function (error, data) {
 
                 return res.json(response(data, error));
             });
         }
 
-        if (req.query.id)
-        {
+        if (req.query.id) {
             params.push({ name: 'id', type: TYPES.Int, val: req.query.id });
 
             dbContext.getQuery("select delid from tbl_Party_Del WHERE id>@id", params, false, function (error, data) {
 
                 return res.json(response(data, error));
             });
-          
+
         }
     }
 
