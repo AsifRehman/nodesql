@@ -9,21 +9,20 @@ function LedgerRepository(dbContext) {
         if (req.query.ts) {
             params.push({ name: 'ts', type: TYPES.Int, val: req.query.ts });
 
-            dbContext.getQuery("select id, partyid, VocNo, Date, TType, Description, NetDebit debit, NetCredit credit, CAST(ts as int) ts from tbl_Ledger WHERE ts>@ts", params, false, function (error, data) {
+            dbContext.getQuery("select id, partyid, VocNo, Date, TType, Description, NetDebit debit, NetCredit credit, isUpdated, CAST(ts as int) ts from tbl_Ledger WHERE ts>@ts", params, false, function (error, data) {
 
                 return res.json(response(data, error));
             });
         }
 
-        if (req.query.id)
-        {
+        if (req.query.id) {
             params.push({ name: 'id', type: TYPES.Int, val: req.query.id });
 
             dbContext.getQuery("select delid from tbl_Ledger_Del WHERE id>@id", params, false, function (error, data) {
 
                 return res.json(response(data, error));
             });
-          
+
         }
     }
 
